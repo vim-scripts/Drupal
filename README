@@ -1,0 +1,16 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4160
+
+This is a very simple (for now) plugin for VIm to help develop with Drupal.
+
+It will probably include more features in the future but is not supposed to become a huge plugin:
+One of the reasons I like VI is its lightness, so... This + Drush + the rest of my VIm config is enough for my usages.
+
+For now, it only bring one command: "Hook {name}" which put under the cursor an empty implementation of the named hook.
+The signature is added and the module name is guessed.
+
+If you use this plugin, be sure to check my github repository, in case of I forget to update here:
+https://github.com/webastien/vim/blob/master/vim/plugin/drupal.vim
+
+On github, you will always find the last version and my VIm configuration (I will try to maintain this page too).
+Feel free to extract parts of code you need from my sources, this could be better but I use those for my daily works without problems.
+When I will have time... I will refactor and make the code cleaner. If you have suggestions, do not hesitate to propose.
