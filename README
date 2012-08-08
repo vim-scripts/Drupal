@@ -1,16 +1,60 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=4160
 
-This is a very simple (for now) plugin for VIm to help develop with Drupal.
+Simple plugin for VIm to help develop with Drupal.
+It's the tool I use for my works, so it will probably include more features in the future.
 
-It will probably include more features in the future but is not supposed to become a huge plugin:
-One of the reasons I like VI is its lightness, so... This + Drush + the rest of my VIm config is enough for my usages.
+But... It is not supposed to become a huge plugin because one of the reasons I like VI is its lightness, so...
+This + Drush + the rest of my VIm config is enough for me, I don't want an editor that take too much memory.
 
-For now, it only bring one command: "Hook {name}" which put under the cursor an empty implementation of the named hook.
-The signature is added and the module name is guessed.
+---
 
-If you use this plugin, be sure to check my github repository, in case of I forget to update here:
+FOR A COMPLETE DOCUMENTATION, READ THE FILE HEADER:
+ALL IS EXPLAINED AND PROBABLY MORE UP2DATE THAN ON THIS PAGE!
+
+---
+
+USAGE:
+
+  - "ResetVimDrupalCache" command:                  ** args: none **
+      Reset the internal cache.
+ 
+    Use it if a new module/theme/file is not autocompleted.
+ 
+ 
+  - "Hook" command:                          **  args: {hook_name} **
+      Implement the named hook, where the cursor is.
+ 
+    For convinience, the module name is guessed by the file path,
+    when this is ambiguous or indeterminate, a prompt is displayed.
+    A cache (renewed each time vim is opened) is used to not ask
+    several times for the same file in which module it is associated.
+ 
+    Note that:
+    - If the hook implementation already exists (and found by ctags),
+      a new function is NOT created: The cursor is placed on this instead.
+    - If the hook contains a specific part (like hook_form_FORM_ID_alter),                                                                            
+      a dialog will ask what use for it (in this example value of FORM_ID)
+ 
+ 
+  - "EditDrupal" command:    **  args: {module / theme} {filepath} **
+      Edit a Drupal file.                      /!\ Require Drush! /!\
+ 
+    {module / theme} is the (machine) name of a module or a theme,
+    {filepath} is the path of a file, relative to this module / theme
+
+    You can use "/" as module argument: It will point to the Drupal root.
+ 
+    Some file are excluded from the autocomplete list.
+    By default: *.png, *.gif, *.jpg and *.jpeg
+    You can change which ones by adding (and adapting) this to your .vimrc:
+          let g:Drupal_excluded_extensions = 'png,gif,jpg,jpeg'
+    (coma separated file extensions to exclude, or empty to allow all files)
+
+---
+
+If you want to be sure having the last version of this plugin, check my github repository (in case of I forgot to update here):
 https://github.com/webastien/vim/blob/master/vim/plugin/drupal.vim
 
-On github, you will always find the last version and my VIm configuration (I will try to maintain this page too).
-Feel free to extract parts of code you need from my sources, this could be better but I use those for my daily works without problems.
-When I will have time... I will refactor and make the code cleaner. If you have suggestions, do not hesitate to propose.
+On github, you will also find my VIm configuration. Feel free to extract parts of code you need from my sources.
+This could be better but I use those for my daily works without problems and it will be improved over the time.
+I always miss time to refactor and clean the code, so if you want to help, you're welcome ;-)
